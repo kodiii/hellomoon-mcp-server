@@ -1,0 +1,65 @@
+{
+  "name": "hellomoon-mcp-server",
+  "version": "1.0.0",
+  "description": "A Model Context Protocol server that provides access to HelloMoon's documentation and API information",
+  "type": "module",
+  "main": "./build/index.js",
+  "bin": {
+    "hellomoon-mcp-server": "./build/index.js"
+  },
+  "files": [
+    "build",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+    "prepare": "npm run build",
+    "watch": "tsc --watch",
+    "inspector": "npx @modelcontextprotocol/inspector build/index.js",
+    "test": "npm run build && node build/index.js --help || echo 'Server built successfully'",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "hellomoon",
+    "solana",
+    "blockchain",
+    "documentation",
+    "api",
+    "datastream",
+    "claude",
+    "cline"
+  ],
+  "author": {
+    "name": "kodiii",
+    "email": "your.email@example.com",
+    "url": "https://github.com/kodiii"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kodiii/hellomoon-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kodiii/hellomoon-mcp-server/issues"
+  },
+  "homepage": "https://github.com/kodiii/hellomoon-mcp-server#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "0.6.0",
+    "axios": "^1.9.0",
+    "ws": "^8.18.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "@types/ws": "^8.18.1",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "node": ">=18"
+  }
+}
